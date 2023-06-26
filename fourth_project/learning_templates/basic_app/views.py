@@ -4,7 +4,8 @@ from django.shortcuts import render
 
 
 def index(request):
-    return render(request, 'basic_app/index.html')
+    context_dict={'text':'hello world','number':100}
+    return render(request, 'basic_app/index.html', context_dict)
 
 
 def other(request):
@@ -12,4 +13,4 @@ def other(request):
 
 
 def relative(request):
-    return render(request, 'basic_app/relative.html')
+    return render(request, 'basic_app/relative_url_templates.html')
