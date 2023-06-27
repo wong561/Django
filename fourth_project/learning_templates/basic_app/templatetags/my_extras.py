@@ -11,5 +11,5 @@ def cut(value,arg):
     """
 
 
-    return value.replace(arg, 'ça va')
+    return value.replace(arg, 'Go Gators!')
 # register.filter('cut',cut)
