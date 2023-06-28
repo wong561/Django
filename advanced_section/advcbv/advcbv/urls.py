@@ -1,4 +1,4 @@
-"""learning_users URL Configuration
+"""advcbv URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
@@ -15,15 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.conf.urls import url, include
+from django.conf.urls import url
 from basic_app import views
-
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^$', views.index, name='index'),
-    url(r'^basic_app/', include('basic_app.urls')),
-    url(r'^logout/$', views.user_logout, name='logout'),
-    url(r'^special/', views.special, name='special')
+    url(r'^$',views.ListView.as_view())
 
 ]
