@@ -1,58 +1,73 @@
 .techfont{
-    font-family: "Nunito Sans", sans-serif;
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    
+  font-family: 'Russo One', sans-serif;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.postdate{
+  text-align: center;
+}
+
+.posttitle{
+  font-family: 'Russo One', sans-serif;
+  font-size: 3em;
+  text-align: center;
+}
+
+.postcontent{
+  font-family: 'Montserrat';
+  font-size: 1.5em;
+}
+
+.centerstage{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-comment{
+  position: absolute;
+  right: 0px;
 }
 
 .bigbrand{
-    font-size: 1.5em;
-    
+  font-size: 1.5em;
 }
 
-body{
-    background-color:#fff8f8;
-    margin: 50px;
-    padding: 0px;
+
+/*COLOR CHANGER*/
+/*Credit and Source: http://codepen.io/thapliyalshivam/pen/dvgXVO*/
+.loader{
+  filter:hue-rotate(0deg);
+  color: linear-gradient(45deg,#0f8,#08f);
+  animation:hue 5000ms infinite linear;
+}
+
+@keyframes spinify {
+  0% {
+    transform: translate(0px,0px);
+
   }
-  .space{
-    display: inline-block;
-    width: 20px;
+  33% {
+    transform: translate(0px,24px);
+    border-radius:100%;
+    width:10px;
+    height:10px;
+
   }
-  .container{
-    display: inline-block;
-    border-radius: 30px 30px;
-    width: 100%;
-    text-align: left;
+   66% {
+    transform:translate(0px,-16px);
   }
-  
-  .title{
-    display: inline;
-    font-size: 120px;
-    font-family: Helvetica;
-    color:#c99;
-    padding: 0px;
-    margin: 0px;
-    animation: blur-anime 1s ease-in-out infinite;
+
+   88% {
+    transform:translate(0px,4px);
+
   }
-  
-  .delay1{animation-delay: 0.1s;}
-  .delay2{animation-delay: 0.2s;}
-  .delay3{animation-delay: 0.3s;}
-  .delay4{animation-delay: 0.4s;}
-  .delay5{animation-delay: 0.5s;}
-  .delay6{animation-delay: 0.6s;}
-  .delay7{animation-delay: 0.7s;}
-  .delay8{animation-delay: 0.8s;}
-  .delay9{animation-delay: 0.9s;}
-  .delay0{animation-delay: 0.0s;}
-  
-  
-  
-  @keyframes blur-anime {
-    0%  {filter: blur(0px);color:#9cc;}
-    40%  {filter: blur(10px);color:#c99;}
-    60%  {filter: blur(10px);color:#c99;}
-    100%  {filter: blur(00px);color:#9cc;}
+  100% {
+    transform:translate(0px,0px);
   }
-  
+}
+@keyframes hue{
+  0%{filter: hue-rotate(0deg);}
+  100%{filter:hue-rotate(360deg);}
+
+}
