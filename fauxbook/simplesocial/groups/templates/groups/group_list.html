@@ -4,14 +4,14 @@
 <div class="col-md-4">
     <div class="content">
         {% if user.is_authenticated %}
-        <h2>Welcome Back!
-            <a href="{% url 'posts:for_user' username=user.username %}">
+        <h2 style="color:#FA4616">Welcome Back!
+            <a style="color:#FA4616" href="{% url 'posts:for_user' username=user.username %}">
                 @{{user.username}}
             </a>
         </h2>
         {% endif %}
-        <h2>Groups</h2>
-        <p>Welcome to the groups page!</p>
+        <h2 style="color:#FA4616">Groups</h2>
+        <p style="color:#FA4616">Welcome to the groups page!</p>
     </div>
     {% if user.is_authenticated %}
     <a href="{% url 'groups:create' %}" class="btn btn-md btn-fill btn-warning">
@@ -26,8 +26,8 @@
     <div class="list-group">
         {% for group in object_list %}
         <a class="list-group-item" href="{% url 'groups:single' slug=group.slug %}">
-            <h3 class="title list-group-item-heading">{{group.name}}</h3>
-            <div class="list-group-item-text container-fluid">
+            <h3 style="color:#FA4616" class="title list-group-item-heading">{{group.name}}</h3>
+            <div class="list-group">
                 {{group.description_html|safe}}
                 <div class="row">
                     <div class="col-md-4">

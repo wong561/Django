@@ -1,4 +1,4 @@
-"""simplesocial URL Configuration
+"""Library_app URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
@@ -15,16 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.conf.urls import url, include
-from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^$', views.HomePage.as_view(), name='home'),
-    url(r"^accounts/", include("accounts.urls", namespace="accounts")),
-    url(r"^accounts/", include("django.contrib.auth.urls")),
-    url(r'^test/$',views.TestPage.as_view(),name='test'),
-    url(r'^thanks/$',views.ThankYou.as_view(),name='thanks'),
-    url(r"^posts/", include("posts.urls", namespace="posts")),
-    url(r"^groups/",include("groups.urls", namespace="groups")),
 ]
