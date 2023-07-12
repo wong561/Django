@@ -1,0 +1,24 @@
+{% extends 'book_app/book_app_base.html' %}
+
+
+
+{% block body_block%}
+
+<div class="jumbotron">
+    <h1>Welcome to the Author Detail page</h1>
+    <h2>Author details: </h2>
+    <p>Name: {{author_detail.name}}</p>
+    <p>Age: {{author_detail.age}} </p>
+    <!-- <p>Location: {{author_detail.location}}</p> -->
+    <h3>Bibliography: </h3>
+
+    {% for book in author_detail.books.all %}
+    <p>{{book.title}}  </p>
+    {% endfor %}
+</div>
+
+<div class="container">
+    <p><a class="btn btn-warning" href="{% url 'book_app:update' pk=author_detail.pk %}">Update</a></p>
+</div>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book List</title>
+
+    <div><h1>List of Books</h1></div>
+    {% for each_book in books_for_template %}
+    <a href="{% url 'books_detail' each_book.id %}" >
+        <div class="card">
+            <div class="card-content">
+                <span class="card-title">{{ each_book.title }}, by {{each_book.author}}
+
+                </span>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+
+{% endblock %}

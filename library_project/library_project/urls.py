@@ -21,4 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.IndexView.as_view()),
     path('book_app/', include('book_app.urls', namespace='book_app')),
+    path('authors/', include('book_app.urls', namespace='authors')),
+    path('books/', include('book_app.urls', namespace='books')),
 ]
