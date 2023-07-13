@@ -1,3 +1,5 @@
+from django.forms.models import BaseModelForm
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.generic import (View, TemplateView,
                                   ListView, DetailView,
@@ -7,7 +9,7 @@ from django.views.generic import (View, TemplateView,
 from django.db import models
 from django.urls import reverse_lazy
 from . import models
-from book_app.models import Book
+# from book_app.models import Book
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 # def index(request):
@@ -22,18 +24,21 @@ class IndexView(TemplateView):
 class AuthorListView(ListView):
     context_object_name = 'authors'
     model = models.Author
-    template_name = 'book_app/author_list.html'
+    template_name = 'authors/author_list.html'
 
 
 class AuthorDetailView(DetailView):
     context_object_name = 'author_detail'
     model = models.Author
-    template_name = 'book_app/authors/author_detail.html'
+    template_name = 'authors/author_detail.html'
 
 
 class AuthorCreateView(CreateView):
     fields = ('name', 'age')
     model = models.Author
+
+    def form_valid(self, form):
+        return super().form_valid(form)
 
 
 class AuthorUpdateView(UpdateView):
@@ -43,30 +48,33 @@ class AuthorUpdateView(UpdateView):
 
 class AuthorDeleteView(DeleteView):
     model = models.Author
-    success_url = reverse_lazy("book_app:list")
+    success_url = reverse_lazy("simon:delete")
 
 
 def books_index_view(request):
-    books_from_db = Book.objects.filter()
-    return render(request,'books/books_index.html',{'books_for_template':books_from_db})
+    books_from_db = models.Book.objects.filter()
+    return render(request, 'book_app/book_list.html', {'books_for_template': books_from_db})
 
-class BookDetail(DetailView):
-    model=Book 
-    template_name = 'books/book_detail.html'
+
+class BookDetailView(DetailView):
+    model = models.Book
+    template_name = 'book_app/book_detail.html'
+
 
 class BookCreateView(CreateView):
-    model=Book
-    fields=['title','year_published','cover','author']
+    model = models.Book
+    fields = ['title', 'year_published', 'cover', 'author']
 
-    def form_valid(self,form):
+    def form_valid(self, form):
         return super().form_valid(form)
-    
+
 
 class BookUpdate(UpdateView):
-    model=Book
-    fields='__all__'
+    model = models.Book
+    fields = '__all__'
     # success_url = reverse_lazy("book_app:list")
 
+
 class BookDeleteView(DeleteView):
-    model=Book
-    success_url='/books/'
+    model = models.Book
+    success_url = '/books/'

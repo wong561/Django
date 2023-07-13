@@ -8,11 +8,11 @@
     <title>Book List</title>
 
     <div><h1>List of Books</h1></div>
-    {% for each_book in books_for_template %}
-    <a href="{% url 'books_detail' each_book.id %}" >
+    {% for book in books %}
+    <a href="{% url 'books_detail' book.id %}" >
         <div class="card">
             <div class="card-content">
-                <span class="card-title">{{ each_book.title }}, by {{each_book.author}}
+                <span class="card-title">{{ book.title }}, by {{book.author}}
 
                 </span>
             </div>

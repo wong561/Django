@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Base</title>
+    <title>book_app_base</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <meta charset="UTF-8">
@@ -16,12 +16,12 @@
 <body>
     <nav class="navbar navbar-default navbar-static-top">
         <ul class="nav navbar-nav">
-            <li><a class="navbar-link" href="{% url 'book_app:home' %}">Home</a></li>
-            <li><a class="navbar-link" href="{% url 'authors:book_create' %}">Add Book</a></li>
-            <li><a class="navbar-link" href="{% url 'book_app:create' %}">Add Author</a></li>
+            <li><a class="navbar-link" href="{% url 'simon:home' %}">Home</a></li>
+            <li><a class="navbar-link" href="{% url 'simon:book_create' %}">Add Book</a></li>
+            <li><a class="navbar-link" href="{% url 'simon:create' %}">Add Author</a></li>
             <li><a class="navbar-link" href="{% url 'admin:index' %}">Admin</a></li>
-            <li><a class="navbar-brand" href="{% url 'authors:author_list' %}">List of Authors 11</a></li>
-            <li><a class="navbar-brand" href="{% url 'book_app:book_list' %}">List of Books 11</a></li>
+            <li><a class="navbar-brand" href="{% url 'simon:author_list' %}">List of Authors 11</a></li>
+            <li><a class="navbar-brand" href="{% url 'simon:book_list' %}">List of Books 11</a></li>
 
         </ul>
 

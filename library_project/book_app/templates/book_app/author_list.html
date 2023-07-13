@@ -2,12 +2,12 @@
 
 {% block body_block %}
 <div class="container">
-    <h1>Welcome to a list of all the authors!</h1>
+    <h1>Author List!</h1>
 </div>
 <ol>
     {% for author in authors %}
     <h2>
-        <li><a href="{{author.id}}">{{author.name}}</a></li>
+        <li><a href="{% url 'simon:home' %}">{{author.name}}</a></li>
     </h2>
     {% endfor %}
 </ol>

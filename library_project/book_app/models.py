@@ -14,14 +14,14 @@ class Author(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse("book_app:author_detail", kwargs={"author_id": self.id})
+        return reverse("simon:author_detail", kwargs={"pk": self.id})
 
 
 class Book(models.Model):
     title = models.CharField(max_length=256)
     year_published = models.IntegerField(null=True)
     author = models.ForeignKey(
-        Author, related_name='titles', on_delete=models.CASCADE)
+        Author, related_name='book', on_delete=models.CASCADE)
     rating = models.FloatField(null=True)
     cover = models.TextField(blank=True)
 
@@ -29,4 +29,4 @@ class Book(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse("book_app:book_detail", kwargs={"pk": self.pk})
+        return reverse("simon:book_detail", kwargs={"pk": self.pk})

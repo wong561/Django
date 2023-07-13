@@ -5,6 +5,6 @@
 <form method="POST">
     {% csrf_token %}
     <input type="submit" class="btn btn-danger" value="Delete">
-    <a href="{% url 'book_app:detail' pk=author.pk %}" >Cancel</a>
+    <a href="{% url 'simon:author_detail' pk=author.pk %}" >Cancel</a>
 </form>
 {% endblock %}
