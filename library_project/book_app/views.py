@@ -28,7 +28,7 @@ class AuthorListView(ListView):
 class AuthorDetailView(DetailView):
     context_object_name = 'author_detail'
     model = models.Author
-    template_name = 'book_app/author_detail.html'
+    template_name = 'book_app/authors/author_detail.html'
 
 
 class AuthorCreateView(CreateView):
@@ -65,6 +65,7 @@ class BookCreateView(CreateView):
 class BookUpdate(UpdateView):
     model=Book
     fields='__all__'
+    # success_url = reverse_lazy("book_app:list")
 
 class BookDeleteView(DeleteView):
     model=Book

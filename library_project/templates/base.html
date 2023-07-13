@@ -16,9 +16,11 @@
 <body>
     <nav class="navbar navbar-default navbar-static-top">
         <ul class="nav navbar-nav">
-            <li><a class="navbar-brand" href="{% url 'authors:author_list' %}">List of Authors</a></li>
+            <li><a class="navbar-link" href="{% url 'books:book_create' %}">Add Book</a></li>
+            <li><a class="navbar-link" href="{% url 'authors:create' %}">Add Author</a></li>
             <li><a class="navbar-link" href="{% url 'admin:index' %}">Admin</a></li>
-            <li><a href="{% url 'book_app:create' %}">Add Author</a></li>
+            <li><a class="navbar-brand" href="{% url 'authors:author_list' %}">List of Authors</a></li>
+            
 
         </ul>
     </nav>
