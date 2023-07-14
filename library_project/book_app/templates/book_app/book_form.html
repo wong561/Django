@@ -1,7 +1,28 @@
 {% extends "book_app/book_app_base.html" %}
 
 {% block body_block %}
-<h1>
+{% if object %}
+<h2>Edit
+    <span class="teal-text">{{object.name}}</span></h2>
+    {% else %}
+    <h2>Add Book</h2>
+    {% endif %}
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+        <input type="submit" value="{% if object %}Update{% else %}Create{% endif %} Book" class="btn">
+    </form>
+{% endblock %}
+
+
+
+
+
+
+<!-- <h1>
     {% if not form.instance.pk %}
     Add Title  
     {% else %}
@@ -13,5 +34,4 @@
     {{ form.as_p }}
     <input type="submit" class="btn btn-primary" value = "Submit">
 
-</form>
-{% endblock %}
+</form> -->
