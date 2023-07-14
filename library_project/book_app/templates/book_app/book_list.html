@@ -7,7 +7,7 @@
 <ol>
     {% for book in books %}
     <h2>
-        <li><a href="p">{{book.title}}</a></li>
+        <li><a href="{% url 'simon:home' %}">{{book.title}}</a></li>
     </h2>
     {% endfor %}
 </ol>
