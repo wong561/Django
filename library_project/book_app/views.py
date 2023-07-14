@@ -53,7 +53,7 @@ class AuthorDeleteView(DeleteView):
 
 def books_index_view(request):
     books_from_db = models.Book.objects.filter()
-    return render(request, 'book_app/book_list.html', {'books_for_template': books_from_db})
+    return render(request, 'book_app/book_list.html', {'books': books_from_db})
 
 
 class BookDetailView(DetailView):
