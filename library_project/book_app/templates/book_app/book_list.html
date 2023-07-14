@@ -1,7 +1,33 @@
 {% extends "book_app/book_app_base.html" %}
 
 {% block body_block %}
-<div class="container">
+<h2>Book List</h2>
+
+{% for book in books %}
+<a href="{% url 'simon:author_detail' book.author.id %}">
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">
+                {{book.title}}, by {{book.author}}
+            </span>
+        </div>
+    </div>
+</a>
+{% endfor %}
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container">
     <h1>Welcome to a list of all books!</h1>
 </div>
 <ol>
@@ -10,6 +36,4 @@
         <li><a href="{% url 'simon:home' %}">{{book.title}}</a></li>
     </h2>
     {% endfor %}
-</ol>
-
-{% endblock %}
+</ol> -->

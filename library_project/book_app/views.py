@@ -58,8 +58,8 @@ def books_index_view(request):
 
 class BookDetailView(DetailView):
     model = models.Book
-    template_name = 'book_app/book_detail.html'
-    context_object_name="book_detail"
+    # template_name = 'book_app/book_detail.html'
+    # context_object_name="book_detail"
 
 class BookCreateView(CreateView):
     model = models.Book
@@ -72,9 +72,9 @@ class BookCreateView(CreateView):
 class BookUpdate(UpdateView):
     model = models.Book
     fields = '__all__'
-    # success_url = reverse_lazy("book_app:list")
+    success_url = reverse_lazy("book_app:book_list")
 
 
 class BookDeleteView(DeleteView):
     model = models.Book
-    success_url = '/books/'
+    success_url = '/home/'

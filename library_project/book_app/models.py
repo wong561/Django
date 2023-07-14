@@ -18,7 +18,7 @@ class Author(models.Model):
 
 
 class Book(models.Model):
-    title = models.CharField(max_length=256)
+    title = models.CharField(max_length=255)
     year_published = models.IntegerField(null=True)
     author = models.ForeignKey(
         Author, related_name='book', on_delete=models.CASCADE)
@@ -29,4 +29,4 @@ class Book(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse("simon:book_detail", kwargs={"pk": self.pk})
+        return reverse("simon:book_detail", kwargs={"pk": self.id})

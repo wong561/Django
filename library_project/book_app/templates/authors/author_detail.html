@@ -10,10 +10,11 @@
     <p>Age: {{author_detail.age}} </p>
     <!-- <p>Location: {{author_detail.location}}</p> -->
     <h3>Bibliography: </h3>
-
-    {% for book in author_detail.books.all %}
-    <p>{{book.title}} </p>
-    {% endfor %}
+        <div class="container">
+            {% for book in books %}
+            <p>{{book.title}} </p>
+            {% endfor %}
+        </div>
 </div>
 
 <div class="container">

@@ -8,11 +8,12 @@
                 <span class="card-title">
                     {{ book.title }}{{book.year_published}}, by {{book.author}}
                 </span>
-                <img class="material-boxed book-cover" src="{{book.cover}}">
+                <img src="https://covers.openlibrary.org/b/isbn/9780385533225-S.jpg" />
+                <!-- <img class="materialboxed book-cover" src="{{book.cover}}"> -->
             </div>
             <div class="card-action">
-                <a href="{% url 'simon:author_detail' book.id %}">Edit</a>
-                <a href="">Delete</a>
+                <a href="{% url 'simon:book_update' book.id %}">Edit</a>
+                <a href="{% url 'simon:book_delete ' book.id %}">Delete</a>
             </div>
         </div>
     </div>
