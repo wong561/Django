@@ -52,14 +52,14 @@ class AuthorDeleteView(DeleteView):
 
 
 def books_index_view(request):
-    books_from_db = models.Book.objects.filter()
+    books_from_db = models.Book.objects.all()
     return render(request, 'book_app/book_list.html', {'books': books_from_db})
 
 
 class BookDetailView(DetailView):
     model = models.Book
-    # template_name = 'book_app/book_detail.html'
-    # context_object_name="book_detail"
+    template_name = 'book_app/book_detail.html'
+    context_object_name="book_detail"
 
 class BookCreateView(CreateView):
     model = models.Book
@@ -72,8 +72,8 @@ class BookCreateView(CreateView):
 class BookUpdate(UpdateView):
     model = models.Book
     fields = '__all__'
-    success_url = reverse_lazy("book_app:book_list")
-
+    def get_success_url(self):
+        return reverse_lazy('simon:book_detail', kwargs={'pk': self.get_object().pk})
 
 class BookDeleteView(DeleteView):
     model = models.Book

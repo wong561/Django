@@ -11,7 +11,7 @@
     <!-- <p>Location: {{author_detail.location}}</p> -->
     <h3>Bibliography: </h3>
         <div class="container">
-            {% for book in books %}
+            {% for book in author_detail.book.all %}
             <p>{{book.title}} </p>
             {% endfor %}
         </div>
