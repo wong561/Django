@@ -1,9 +1,9 @@
-{% extends 'base.html' %}
+{% extends "book_app/book_app_base.html" %}
 {% block body_block %}
-<h1>Delete {{author.name}}? </h1>
+<h1>Delete {{object.name}}? </h1>
 <form method="POST">
     {% csrf_token %}
     <input type="submit" class="btn btn-danger" value="Delete">
-    <a href="{% url 'simon:author_detail' pk=author.pk %}" >Cancel</a>
+    <a href="{% url 'simon:author_detail' pk=book.pk %}" >Cancel</a>
 </form>
 {% endblock %}

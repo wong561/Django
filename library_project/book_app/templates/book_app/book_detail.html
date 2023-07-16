@@ -7,13 +7,14 @@
         <div class="card">
             <div class="card-content">
                 <span class="card-title">
-                    {{ book.title }}{{book.year_published}}, by {{book.author}}
+                    <h3>{{ book.title }}</h3><br>by {{book.author}}<br>
+                    Published: {{book.year_published}}
                 </span>
                 
                 <img class="materialboxed book-cover" src="{{book.cover}}">
             </div>
             <div class="card-action">
-                <a href="{% url 'book_app:book_update' book.id %}">Edit</a>
+                <a class="btn btn-warning" href="{% url 'book_app:book_update' pk=book.id %}">Edit</a>
                 <a href="{% url 'book_app:book_delete' book.id %}">Delete</a>
             </div>
         </div>
