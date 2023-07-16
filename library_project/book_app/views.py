@@ -67,13 +67,19 @@ class BookCreateView(CreateView):
 
     def form_valid(self, form):
         return super().form_valid(form)
-
+    
+    def get_success_url(self):
+        return reverse_lazy('book_app:book_list') 
 
 class BookUpdate(UpdateView):
     model = models.Book
     fields = '__all__'
+    template_name = 'book_app/book_detail.html'
+    success_url = reverse_lazy('simon:book_list')  # Redirect after successful update
+
     def get_success_url(self):
-        return reverse_lazy('simon:book_detail', kwargs={'pk': self.get_object().pk})
+        return self.object.get_absolute_url()
+    
 
 class BookDeleteView(DeleteView):
     model = models.Book
