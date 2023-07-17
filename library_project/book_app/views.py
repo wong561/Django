@@ -76,8 +76,8 @@ class BookCreateView(CreateView):
 class BookUpdate(UpdateView):
     model = models.Book
     fields = '__all__'
-    template_name = 'book_app/book_detail.html'
-    success_url = reverse_lazy('book_app:book_detail')
+    template_name = 'book_app/book_form.html'
+    success_url = reverse_lazy('book_app:book_list')
 
     def form_valid(self, form):
         self.object = form.save()
