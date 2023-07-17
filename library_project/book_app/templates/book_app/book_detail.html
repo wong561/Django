@@ -1,7 +1,7 @@
 {% extends "book_app/book_app_base.html" %}
 
 {% block body_block %}
-<h1>Book Details</h1>
+<h1>Book Details </h1>
 <div class="row">
     <div class="col s7 col-offset-3">
         <div class="card">
@@ -14,7 +14,7 @@
                 <img class="materialboxed book-cover" src="{{book.cover}}">
             </div>
             <div class="card-action">
-                <a class="btn btn-warning" href="{% url 'book_app:book_update' pk=book.id %}">Edit</a>
+                <a class="btn btn-warning" href="{% url 'book_app:book_update' book.id %}">Edit</a>
                 <a href="{% url 'book_app:book_delete' book.id %}">Delete</a>
             </div>
         </div>
