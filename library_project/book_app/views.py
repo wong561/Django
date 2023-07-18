@@ -59,7 +59,7 @@ def books_index_view(request):
 class BookDetailView(DetailView):
     model = models.Book
     template_name = 'book_app/book_detail.html'
-    context_object_name="book_detail"
+    context_object_name="book"
 
 class BookCreateView(CreateView):
     model = models.Book
