@@ -3,7 +3,7 @@
 
 
 {% block body_block%}
-<h1>Welcome to the Author Detail Page</h1>
+<h1>Welcome to {{author_detail.name}}'s Detail Page</h1>
 <div class="jumbotron">
     <h2>Author details: </h2>
     <p>Name: {{author_detail.name}}</p>
@@ -12,7 +12,7 @@
     <h3>Bibliography: </h3>
         <div class="container">
             {% for book in author_detail.book.all %}
-            <p>{{book.title}} </p>
+            <p><a href="{% url 'simon:book_detail' book.id %}">{{book.title}}</a></p>
             {% endfor %}
         </div>
 </div>
