@@ -20,12 +20,13 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.index, name='index'),
-    path('<int:id>/',views.detail,name='detail'),
+    path('', views.index, name='index'),
+    path('<int:id>/', views.detail, name='detail'),
     # path("__debug__/", include("debug_toolbar.urls")),
+    path('checkout/', views.checkout, name='checkout'),
 ]
 if settings.DEBUG:
     import debug_toolbar
-    urlpatterns=[
-        path('__debug__/',include(debug_toolbar.urls))
+    urlpatterns = [
+        path('__debug__/', include(debug_toolbar.urls))
     ]+urlpatterns
