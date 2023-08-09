@@ -1,6 +1,11 @@
 from django.shortcuts import render
 from .models import Product, Order
 from django.core.paginator import Paginator
+from django.views.generic import (View, TemplateView,
+                                  ListView, DetailView,
+                                  CreateView, UpdateView,
+                                  DeleteView)
+from . import models
 # Create your views here.
 
 
@@ -19,9 +24,12 @@ def index(request):
     return render(request, 'shop/index.html', {'product_objects': product_objects})
 
 
-def detail(request, id):
-    product_object = Product.objects.get(id=id)
-    return render(request, 'shop/detail.html', {'product_object': product_object})
+
+# class ProductDetail(DetailView):
+#     context_object_name='product_detail'
+#     model = models.Product
+#     template_name = 'shop/product_detail.html'
+
 
 
 def checkout(request):
@@ -40,3 +48,10 @@ def checkout(request):
         order.save()
 
     return render(request, 'shop/checkout.html')
+
+
+
+def detail(request, id):
+    product_object = Product.objects.get(id=id)
+    print(product_object.title)
+    return render(request, 'shop/detail.html', {'product_object': product_object})
